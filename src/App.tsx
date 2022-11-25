@@ -1,15 +1,15 @@
 import React from 'react';
-import Todolist from './Todolist';
+import Todolist, { TaskType } from './Todolist';
 
 function App() {
 
-let tasks1 = [
+let tasks1: Array<TaskType> = [
   {id: 1, title: "CSS" , isDone: true},
   {id: 2, title: "JS" , isDone: true},
   {id: 3, title: "React" , isDone: false}
 ]
 
-let tasks2 = [
+let tasks2: Array<TaskType> = [
   {id: 1, title: "Terminator" , isDone: true},
   {id: 2, title: "XXX" , isDone: false},
   {id: 3, title: "Jentelmen of fortune" , isDone: true}
@@ -20,9 +20,8 @@ let tasks2 = [
       <Header/>
       <div className='container mt-3'>
         <div className='row'>
-          <Todolist title="What to learn"/>
-          <Todolist title="What to watch"/>
-          <Todolist title="What to listen"/>
+          <Todolist title="What to learn" tasks={tasks1} />
+          <Todolist title="What to watch" tasks={tasks2}/>
         </div>
       </div>      
     </div>
