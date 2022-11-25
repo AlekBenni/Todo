@@ -20,9 +20,18 @@ function Todolist (props:TodolistPropsType){
           <button className="btn btn-danger" type="button" id="button-addon2">Button</button>
         </div>
         <ul className='list-group'>
-          <li className="list-group-item"><input className="form-check-input me-2" type="checkbox" checked={props.tasks[0].isDone} id="flexCheckDefault"/>{props.tasks[0].title}</li>
-          <li className="list-group-item"><input className="form-check-input me-2" type="checkbox" checked={props.tasks[1].isDone} id="flexCheckDefault"/>{props.tasks[1].title}</li>
-          <li className="list-group-item"><input className="form-check-input me-2" type="checkbox" checked={props.tasks[2].isDone} id="flexCheckDefault"/>{props.tasks[2].title}</li>
+          {
+          props.tasks.map((task) => {
+              return (
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                  <input className="form-check-input me-2" type="checkbox" checked={task.isDone} id="flexCheckDefault"/>
+                  <span>{task.title}</span>
+                  </div>
+                  <button type="button" className="btn btn-outline-danger btn-sm" onClick={() => {alert(task.title)}}>X</button>
+                </li>
+              )
+          })}
         </ul>
         <div className='d-flex justify-content-around mt-3'>
           <button type="button" className="btn btn-primary">Primary</button>
