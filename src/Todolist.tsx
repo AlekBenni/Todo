@@ -1,6 +1,10 @@
+import { FilterValuesType } from "./App";
+
 type TodolistPropsType = {
     title: string;
-    tasks: Array<TaskType>
+    tasks: Array<TaskType>;
+    removeTask: (id: number) => void;
+    changeFilter: (value: FilterValuesType) => void;
 }
 
 export type TaskType = {
@@ -28,15 +32,15 @@ function Todolist (props:TodolistPropsType){
                   <input className="form-check-input me-2" type="checkbox" checked={task.isDone} id="flexCheckDefault"/>
                   <span>{task.title}</span>
                   </div>
-                  <button type="button" className="btn btn-outline-danger btn-sm" onClick={() => {alert(task.title)}}>X</button>
+                  <button type="button" className="btn btn-outline-danger btn-sm" onClick={() => {props.removeTask(task.id)}}>X</button>
                 </li>
               )
           })}
         </ul>
         <div className='d-flex justify-content-around mt-3'>
-          <button type="button" className="btn btn-primary">Primary</button>
-          <button type="button" className="btn btn-success">Success</button>
-          <button type="button" className="btn btn-danger">Danger</button>
+          <button onClick={() => props.changeFilter("all")} type="button" className="btn btn-primary">All</button>
+          <button onClick={() => props.changeFilter("active")} type="button" className="btn btn-success">Active</button>
+          <button onClick={() => props.changeFilter("complited")} type="button" className="btn btn-danger">Complited</button>
         </div>
         </div>
         </div>
