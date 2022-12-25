@@ -50,7 +50,7 @@ function Todolist (props:TodolistPropsType){
     return (
       <div className='col-4'>
         <div className='border p-3 rounded shadow '>
-        <h3>{props.title}</h3>
+        <h4>{props.title}</h4>
         <div>
         <div className="input-group mb-3 has-validation">
           <input type="text" 
