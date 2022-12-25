@@ -35,6 +35,7 @@ function Todolist (props:TodolistPropsType){
       props.addTask(newTaskTitle)
       setNewTaskTitle("")
     }}
+
   const addTask = () => {
     if(newTaskTitle.trim() === "") {
       setError(true)
@@ -68,7 +69,7 @@ function Todolist (props:TodolistPropsType){
             const onRemoveHandler = () => { props.removeTask(task.id) }
             const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => { props.changeTaskStatus(task.id, e.currentTarget.checked) }
               return (
-                <li key={task.id} className="list-group-item d-flex justify-content-between align-items-center">
+                <li key={task.id} className={task.isDone ? "list-group-item d-flex justify-content-between align-items-center" : "list-group-item d-flex justify-content-between align-items-center opacity-50"}>
                   <div>
                   <input className="form-check-input me-2" type="checkbox" 
                   checked={task.isDone} 

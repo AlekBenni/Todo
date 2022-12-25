@@ -19,14 +19,17 @@ function removeTask(id:string){
   let filteredTasks = tasks.filter(t => t.id !== id)
   setTasks(filteredTasks)
 }
+
 function addTask(task:string){
   let newTask = {id: v1(), title: task, isDone: false}
   let newTasks = [newTask, ...tasks];
   setTasks(newTasks)
 }
+
 function changeFilter(fil:FilterValuesType){
   setFilter(fil)
 }
+
 function changeStatus(taskId: string, status:boolean){
   let task = tasks.find(t => t.id === taskId)
   if(task) task.isDone = status;
@@ -44,7 +47,7 @@ if(filter === "active"){
   return (
     <div>
       <Header/>
-      <div className='container mt-3'>
+      <div className='container my-3'>
         <div className='row'>
           <Todolist title="What to learn" 
           tasks={tasksForTodolist} 
