@@ -61,7 +61,7 @@ function Todolist (props:TodolistPropsType){
           className={error ? "form-control is-invalid" : "form-control"} placeholder="Add a new Task" aria-label="Recipient's username" aria-describedby="button-addon2"/>
           <button onClick={() => {addTask()}}
           className="btn btn-danger" type="button" id="button-addon2">Button</button>
-            {error ? <div className="invalid-feedback"> Title is required! </div> : <span></span>}
+            {error ? <div className="invalid-feedback"> Title  is required! </div> : <span></span>}
         </div>
         <ul className='list-group'>
           {
